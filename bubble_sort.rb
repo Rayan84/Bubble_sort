@@ -1,30 +1,29 @@
-#bubble sort
+# frozen_string_literal: true
+
+# bubble sort
 
 def bubble_sort(arr)
-
   return arr if arr.length <= 1
 
   loop do
-  changed = false
-  (arr.length-1).times do |i|
-
-  if arr[i] > arr[i+1]
-    arr[i], arr[i+1] = arr[i+1], arr[i]
-    changed = true
+    changed = false
+    (arr.length - 1).times do |i|
+      if arr[i] > arr[i + 1]
+        arr[i], arr[i + 1] = arr[i + 1], arr[i]
+        changed = true
+      end
+    end
+    break if changed == false
   end
-end
-  break if changed == false
-end
-   arr
+  arr
 end
 
 array = [4, 5, 2, 20, 12, 8, 3, 52, 18, 1]
 bubble_sort(array)
 
-
 def bubble_sort_by(array)
   sorted_array = array
-  array.map.with_index do |val, index|
+  array.map.with_index do |_val, index|
     i = 0
     if index < array.length
       while i < array.length - 1
@@ -41,6 +40,6 @@ def bubble_sort_by(array)
   sorted_array
 end
 
-     bubble_sort_by(["hi","hello","hey"]) do |left,right|
-     left.length - right.length
-   end
+bubble_sort_by(%w[hi hello hey]) do |left, right|
+  left.length - right.length
+end
